@@ -4,7 +4,7 @@
         <div class="row row-lg px-5 mx-5">
             <div class="col container">
                 <h2>Adatok</h2>
-                <form action="index.php?page=regisztraciok" method="post">
+                <form action="index.php?page=regisztraciok" method="get">
                     <div class="form-group">
                         <label for="nev">Név:</label>
                         <input type="text" id="nev" name="nev" class="form-control" required maxlength="30" />

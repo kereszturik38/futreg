@@ -6,18 +6,18 @@ include "model/Versenyzok.php";
 
 $versenyzok = new Versenyzok();
 
-if(isset($_POST)){
+if(isset($_GET["nev"])){
 
-    $nev = $_POST["nev"];
-    $szuletes = date_create_from_format('Y-m-d',$_POST["szuletes"]);
-    $email = $_POST["email"];
-    $nem = $_POST["nem"];
+    $nev = $_GET["nev"];
+    $szuletes = new DateTime($_GET["szuletes"]);
+    $email = $_GET["email"];
+    $nem = $_GET["nem"];
 
 
-    $now = date_create_from_format("Y-m-d",date("Y-m-d"));
+    $now = new Datetime()->now;
 
-    $diff = (array) date_diff($szuletes,$now);
-    $diffYears = $diff["Y"];
+    $diff = $szuletes->diff($now);
+    $diffYears = $diff->y;
 
     
     if($diffYears <= 14){
