@@ -11,9 +11,9 @@ class Versenyzok{
         }
     }
 
-    public static function Regisztral($conn,$jelentkezo){
+    public static function Regisztral($conn,$nev,$szuletes,$nem,$email){
         $stmt = $conn->prepare("INSERT INTO jelentkezes(nev,nem,szuletes,email) VALUES (?,?,?,?)");
-        $stmt->bind_param("sisi",$jelentkezo->get_nev(),$jelentkezo->get_nem(),$jelentkezo->get_szuletes(),$jelentkezo->get_email());
+        $stmt->bind_param("sisi",$nev,$szuletes,$nem,$email);
         if($stmt->execute()){
             $result = $stmt->get_result();
             return $result;
